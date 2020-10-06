@@ -1,21 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const registerButtons = document.querySelectorAll(".register-button")
+document.addEventListener("DOMContentLoaded", async () => {
+  const table = document.querySelector("#lista")
 
-  registerButtons.forEach((btn) => {
-    btn.addEventListener("click", async (e) => {
-      const email = btn.parentNode.querySelector(".input-email").value
-      const option = btn.parentNode.querySelector(".select").value
+  const response = await axios.get("https://smartmultas.com.br/client/rock_contacts");
 
-      const params = { email, option }
+  document.querySelector("#contagem").innerHTML = response.data.length
 
-      const response = await axios.post("https://smartmultas.com.br/client/rock_contacts", params);
-
-      if (response.data.success)  {
-        btn.parentNode.querySelector(".request-success").style.display = ''
-        window.open('https://evoe.cc/volunteerweek-crea?timestamp=1601946356967', '_blank');
-      } else {
-        btn.parentNode.querySelector(".request-success").style.display = ''
-      }
-    })
+  response.data.forEach((el) => {
+    table.insertAdjacentHTML("beforeend", `<tr><td>${el.email}</td><td>${el.option}</td></tr>`)
   })
 })

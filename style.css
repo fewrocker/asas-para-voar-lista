@@ -6,6 +6,12 @@
   height: 100vh;
 }
 
+tr:nth-child(even) {background-color: #F7C7DA;}
+th {background-color: #ED5356; color: white;}
+td, th {
+  padding: 12px 24px;
+}
+
 .color-1 {
   color: #ED5356;
 }
