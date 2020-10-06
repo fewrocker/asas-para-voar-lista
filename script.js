@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.querySelector("#contagem").innerHTML = response.data.length
 
   response.data.forEach((el) => {
-    table.insertAdjacentHTML("beforeend", `<tr><td>${el.email}</td><td>${el.option}</td></tr>`)
+    table.insertAdjacentHTML("beforeend", `<tr><td>${el.email}</td><td>${el.webinar_1}</td><td>${el.webinar_2}</td><td>${el.webinar_3}</td></tr>`)
   })
 
   document.querySelector("#copy-paste").innerText = document.querySelector("body").innerHTML
