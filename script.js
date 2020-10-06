@@ -8,4 +8,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   response.data.forEach((el) => {
     table.insertAdjacentHTML("beforeend", `<tr><td>${el.email}</td><td>${el.option}</td></tr>`)
   })
+
+  document.querySelector("#copy-paste").innerText = document.querySelector("body").innerHTML
 })
